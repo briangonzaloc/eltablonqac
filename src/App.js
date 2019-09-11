@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import News from './pages/News';
 import KnowUs from './pages/KnowUs';
 import Voice from './pages/Voice';
+import NewNote from './pages/NewNote';
 
 function App() {
     return (
@@ -16,7 +17,8 @@ function App() {
                     <Route exact path="/" component={Home}></Route>
                     <Route exact path="/news" component={News}></Route>
                     <Route exact path="/voice" component={Voice}></Route>
-                    <Route exact path="/knowus" component={KnowUs}></Route>
+                    <Route exact path="/knowus" component={NewNote}></Route>
+                    <Route exact path="/newnote" component={KnowUs}></Route>
                 </Switch>
             </Layout>
         </BrowserRouter>
