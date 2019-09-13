@@ -1,10 +1,10 @@
 from django.conf.urls import url, include
 from rest_framework.routers import DefaultRouter
-from .views import 	UserViewSet
+from .views import NoteViewSet
 
 router = DefaultRouter()
-router.register(r'users', UserViewSet)
+router.register(r'notes', NoteViewSet)
 
-profiles_urls = [
+notes_urls = [
 	url(r'^', include(router.urls)),
 ]

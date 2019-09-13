@@ -1,14 +1,14 @@
 from django.shortcuts import render
 
-from .models import Profile
+from django.contrib.auth.models import User
 from rest_framework import viewsets, permissions
-from .serializers import ProfileSerializer
+from .serializers import UserSerializer
 from django_filters import rest_framework
 
-class ProfileViewSet(viewsets.ModelViewSet):
-	queryset            = Profile.objects.all()
-	serializer_class    = ProfileSerializer
+class UserViewSet(viewsets.ModelViewSet):
+	queryset            = User.objects.all()
+	serializer_class    = UserSerializer
 	permissions_classes = (permissions.IsAuthenticated, )
 	
-	filter_backends = (rest_framework.DjangoFilterBackend, )
-	filter_fields   = ('username',)
+	# filter_backends = (rest_framework.DjangoFilterBackend, )
+	# filter_fields   = ('User__username',)

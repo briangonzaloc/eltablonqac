@@ -5,7 +5,9 @@ import { EditorState, convertFromRaw, convertToRaw } from 'draft-js';
 import { Button } from 'react-bootstrap';
 import draftToHtml from 'draftjs-to-html';
 
-import api from '../api';
+import manager from '../apis/Manager';
+import usersService from '../apis/UsersService';
+import notesService from '../apis/NotesService';
 
 const initialContent = { 
     "entityMap": {}, 
@@ -68,10 +70,23 @@ class NewNote extends React.Component{
     }
 
     saveContent = async () => {
-        let noteContent = convertToRaw(this.state.editorState.getCurrentContent())
+        await manager.login({
+            username : 'xxxx',
+            password: 'xxxx'
+        })
+
+        let currentContent = this.state.editorState.getCurrentContent();
+        if ( !currentContent.hasText() ){
+            console.log('ESTA VACIO PAPA!!! QUE QUERE GUARDAAAAA !!!!  ')
+            return;
+        }
+
+        // const users = await usersService.list()
+        // console.log('users => ', users);
+        let noteContent = convertToRaw(currentContent)
         noteContent = JSON.stringify(noteContent)
         console.log('SAVE => ', noteContent);
-        await api.notes.save({ content: noteContent}) 
+        await notesService.create({ content: noteContent}) 
         
 
         
