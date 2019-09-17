@@ -6,7 +6,6 @@ import { Button } from 'react-bootstrap';
 import draftToHtml from 'draftjs-to-html';
 
 import manager from '../apis/Manager';
-import usersService from '../apis/UsersService';
 import notesService from '../apis/NotesService';
 
 const initialContent = { 
@@ -52,13 +51,14 @@ class NewNote extends React.Component{
         return new Promise(
             (resolve, reject) => {
                 const xhr = new XMLHttpRequest();
-                xhr.open('POST', 'https://api.imgur.com/3/image');
-                xhr.setRequestHeader('Authorization', 'Client-ID XXXXX');
+                xhr.open('POST', 'http://localhost:8000/api/notes/upload/');
+                xhr.setRequestHeader('Authorization', `JWT ${localStorage.getItem('token')}`);
                 const data = new FormData();
                 data.append('image', file);
                 xhr.send(data);
                 xhr.addEventListener('load', () => {
                     const response = JSON.parse(xhr.responseText);
+                    response.data.link = 'http://localhost:8000' + response.data.link
                     resolve(response);
                 });
                 xhr.addEventListener('error', () => {
@@ -71,8 +71,8 @@ class NewNote extends React.Component{
 
     saveContent = async () => {
         await manager.login({
-            username : 'xxxx',
-            password: 'xxxx'
+            username : 'bcespedes',
+            password: 'brian12345'
         })
 
         let currentContent = this.state.editorState.getCurrentContent();
@@ -81,8 +81,6 @@ class NewNote extends React.Component{
             return;
         }
 
-        // const users = await usersService.list()
-        // console.log('users => ', users);
         let noteContent = convertToRaw(currentContent)
         noteContent = JSON.stringify(noteContent)
         console.log('SAVE => ', noteContent);
@@ -94,7 +92,11 @@ class NewNote extends React.Component{
         // console.log('editor', editor)  
     }
 
-    getHtmlContent =() =>{
+    uploadFile = async () => {
+        await notesService.uploadImage()
+    }
+
+    getHtmlContent = () =>{
         let postContent = convertToRaw(this.state.editorState.getCurrentContent())
         postContent = JSON.stringify(postContent)
         const edit = EditorState.createWithContent(convertFromRaw(JSON.parse(postContent)));
@@ -136,7 +138,8 @@ class NewNote extends React.Component{
                     value={JSON.stringify(contentState, null, 4)}
                 /> */}
                 <Button variant="primary" onClick={this.saveContent}>Guardar</Button>
-                <div dangerouslySetInnerHTML={this.getHtmlContent()}/>
+                <Button variant="success" onClick={this.uploadFile}>File</Button>
+                {/* <div dangerouslySetInnerHTML={this.getHtmlContent()}/> */}
             </React.Fragment>
         );
     }

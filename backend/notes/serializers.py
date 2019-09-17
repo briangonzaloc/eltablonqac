@@ -10,3 +10,8 @@ class NoteSerializer(serializers.ModelSerializer):
 	class Meta:
 		model = Note
 		fields = "__all__"
+
+
+	def create(self, validated_data):
+		# import pdb; pdb.set_trace();
+		return Note.objects.create(**validated_data,user=self.context['user'])

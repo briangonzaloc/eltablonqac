@@ -37,6 +37,9 @@ const notes = {
             method: 'DELETE'
         })
     },
+    uploadImage() {
+        return callApi(`notes/upload/`)
+    },
 }
 
 
