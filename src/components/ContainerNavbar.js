@@ -9,7 +9,7 @@ class ContainerNavbar extends React.Component{
     render(){
         return (
             // <Container fluid className="Navbar">
-                <Container fluid className="Navbar" >
+                <Container fluid className="Navbar mt-2"  >
                     <Row>
                         <Col xs={12} md={{ span: 3, offset: 3 }} >
                             <Link to="/">
@@ -20,15 +20,15 @@ class ContainerNavbar extends React.Component{
                             <FollowUs/>
                         </Col>
                     </Row>
-                    <Navbar expand="lg" sticky ="top" >
+                    <Navbar expand="md" >
                             <Navbar.Toggle aria-controls="basic-navbar-nav" />
                             <Navbar.Collapse id="basic-navbar-nav">
-                                <Nav id="NavOpts" className="ml-auto mr-auto">
-                                    <Nav.Link className="nav-item" as={Link} to="/">Inicio</Nav.Link>
-                                    <Nav.Link className="nav-item" as={Link} to="/news">Noticias</Nav.Link>
-                                    <Nav.Link className="nav-item" as={Link} to="voice">La voz del tablón</Nav.Link>
+                                <Nav id="NavOpts" className="ml-auto mr-auto text-uppercase" variant="tabs" defaultActiveKey="/">
+                                    <Nav.Link eventKey="link-1" className="nav-item" as={Link} to="/">Inicio</Nav.Link>
+                                    <Nav.Link eventKey="link-2" className="nav-item" as={Link} to="/news">Noticias</Nav.Link>
+                                    <Nav.Link eventKey="link-3" className="nav-item" as={Link} to="voice">La voz del tablón</Nav.Link>
                                     <Nav.Link className="nav-item" as="a" target="_blank" href="https://www.facebook.com/pg/ElTablonQac/photos/?tab=albums">Imágenes</Nav.Link>
-                                    <Nav.Link className="nav-item" as={Link} to="/knowus">Conocenos</Nav.Link>
+                                    <Nav.Link eventKey="link-5" className="nav-item" as={Link} to="/knowus">Conocenos</Nav.Link>
                                     <Nav.Link className="nav-item" as="a" target="_blank" href="https://fm961radioplus.com/">Escuchanos</Nav.Link>
                                 </Nav>
                             </Navbar.Collapse>

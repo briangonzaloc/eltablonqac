@@ -4,6 +4,8 @@ import draftToHtml from 'draftjs-to-html';
 import notesService from '../apis/NotesService';
 import manager from '../apis/Manager';
 import { EditorState, convertFromRaw, convertToRaw } from 'draft-js';
+import { Link } from 'react-router-dom';
+import { Button } from 'react-bootstrap';
 
 
 class News extends React.Component{
@@ -68,7 +70,9 @@ class News extends React.Component{
         }
         return (
             <React.Fragment>
-                <p>NOTES</p>
+                <Link to="/newnote">
+                    <Button variant="primary">Nueva nota</Button>
+                </Link>
                 {/* {JSON.stringify(this.state.notes)} */}
                 <div dangerouslySetInnerHTML={this.getHtmlContent()} />
             </React.Fragment>

@@ -15,27 +15,30 @@ async function callApi(endpoint, options = {}) {
 }
 const advertisements = {
     list() {
-        return callApi('notes/')
+        return callApi('advertisements/')
     },
-    create(note) {
-        return callApi('notes/', {
+    create(adv) {
+        return callApi('advertisements/', {
             method: 'POST',
-            body: JSON.stringify(note)
+            body: JSON.stringify(adv)
         });
     },
-    get(noteId) {
-        return callApi(`notes/${noteId}/`);
+    get(advId) {
+        return callApi(`advertisements/${advId}/`);
     },
-    update(noteId, updates) {
-        return callApi(`notes/${noteId}/`, {
+    update(advId, updates) {
+        return callApi(`advertisements/${advId}/`, {
             method: 'PUT',
             body: JSON.stringify(updates)
         });
     },
-    remove(noteId) {
-        return callApi(`notes/${noteId}/`, {
+    remove(advId) {
+        return callApi(`advertisements/${advId}/`, {
             method: 'DELETE'
         })
+    },
+    uploadImage() {
+        return callApi(`advertisements/upload/`)
     },
 }
 
