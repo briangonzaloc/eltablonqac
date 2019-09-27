@@ -1,4 +1,4 @@
-.Navbar{
+/* .Navbar{
     width: 100%;
     padding: 0.5rem 0;
     background-color: #02204D;
@@ -6,4 +6,26 @@
 
 #NavOpts .nav-item {
     color: white
+} */
+
+/* Inactive tab */
+.myClass a {
+    background-color: #002E5D;
+    color: white;
+}
+.myClass a:hover {
+    background-color: #001A33;
+    color: white;
+}
+
+/* Active tab */
+/* .myClass ul > li.active > a,
+.myClass ul > li.active > a:hover, */
+.myClass {
+    background-color: #02204D;
+    color: white;
+}
+
+.nav-link {
+    margin-right: 10px;
 }

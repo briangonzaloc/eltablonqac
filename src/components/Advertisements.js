@@ -35,14 +35,14 @@ class Advertisements extends Component {
                     picture: "https://static.wixstatic.com/media/d255c3_2635b6ce70274bfa8bb914f21f968d11~mv2.jpeg/v1/fill/w_292,h_292,al_c,q_80,usm_0.66_1.00_0.01/WhatsApp%20Image%202019-02-27%20at%2020_12_41%20(2.webp",
                 },
                 {
-                    id: 3,
+                    id: 2,
                     title: "Occhipinti Inmobiliaria",
                     description: "Inmobiliearia papa",
                     link: "https://www.facebook.com/carlos.occhipinti.1",
                     picture: "https://static.wixstatic.com/media/d255c3_ad8e2946a42f4c5eb9deb5e2e5022784~mv2.jpg/v1/fill/w_292,h_164,al_c,q_80,usm_0.66_1.00_0.01/Occhipinti.webp",
                 },
                 {
-                    id: 4,
+                    id : 3,
                     title: "Confiteria Oddone",
                     description: "La mejor confi de zona sur monooo",
                     link: "http://www.confiteriaoddone.com.ar/",
