@@ -48,7 +48,8 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     'notes',
-    'users'
+    'users',
+    'announcements',
 ]
 
 INSTALLED_APPS = DJANG_APPS + THIRD_PARTY_APPS + LOCAL_APPS

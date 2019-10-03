@@ -1,6 +1,6 @@
 import React from 'react';
 import Advertisements from '../components/Advertisements';
-import { Card } from 'react-bootstrap';
+import { Card, ResponsiveEmbed, embed } from 'react-bootstrap';
 
 class Home extends React.Component{
     render(){
@@ -18,6 +18,16 @@ class Home extends React.Component{
                         <Card.Text>Last updated 3 mins ago</Card.Text>
                     </Card.ImgOverlay>
                 </Card> */}
+                {/*<div className="embed-responsive embed-responsive-16by9">
+                  <iframe title="Embeds Page" className="embed-responsive-item" src="https://www.youtube.com/embed/RusuqbhRK_U"
+                    allowfullscreen></iframe>
+                </div>
+*/}
+                <div style={{ width: 400, height: 'auto' }}>
+                  <ResponsiveEmbed aspect="a16by9">
+                    <embed src="https://www.youtube.com/embed/RusuqbhRK_U" />
+                  </ResponsiveEmbed>
+                </div>
                 <Advertisements/>
             </React.Fragment>
         )

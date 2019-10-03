@@ -25,8 +25,9 @@ class Advertisements extends Component {
 
         this.setState({ loading: true, error: null })
         try {
-            // const advertisements = await advertisementService.list()
-            const advertisements = [
+            const advertisements = await advertisementService.list()
+            console.log(advertisements);
+           /* const advertisements = [
                 {
                     id : 1,
                     title : "Buquebus Quilmes",
@@ -48,7 +49,7 @@ class Advertisements extends Component {
                     link: "http://www.confiteriaoddone.com.ar/",
                     picture: "https://static.wixstatic.com/media/d255c3_b73f372eb39f44c1a3a2e80bc754229a~mv2.jpeg/v1/fill/w_292,h_111,al_c,q_80,usm_0.66_1.00_0.01/d255c3_b73f372eb39f44c1a3a2e80bc754229a~mv2.webp",
                 },
-            ]
+            ]*/
             this.setState({ loading: false, advertisements: advertisements })
         } catch (err) {
             this.setState({ loading: false, error: err })
@@ -56,7 +57,7 @@ class Advertisements extends Component {
     }
 
     showContentAdvertisiments = () => {
-        if( !this.state.advertisements ){
+        if( !this.state.advertisements || !this.state.advertisements.length  ){
             return '';
         }
 
