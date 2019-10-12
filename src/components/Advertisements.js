@@ -23,7 +23,7 @@ class Advertisements extends Component {
         //     password: 'brian12345'
         // })
 
-        this.setState({ loading: true, error: null })
+        this.setState({ loading: true, error: null }) 
         try {
             const advertisements = await advertisementService.list()
             console.log(advertisements);
